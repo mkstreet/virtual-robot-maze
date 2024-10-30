@@ -1,0 +1,93 @@
+\documentclass{article}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\geometry{margin=1in}
+
+\title{Guidance for Students: Virtual Robot Maze Simulator}
+\author{}
+\date{}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{Introduction to Rust and the Project}
+	
+	Welcome to the \textbf{Virtual Robot Maze Simulator} project! In this project, you'll not only learn the basics of the Rust programming language but also understand how programming works in real-world embedded systems, like robots or even medical devices.
+	
+	\section*{Why Learn Rust?}
+	Rust is a modern programming language that combines high performance with memory safety. It is used in many areas, including:
+	\begin{itemize}
+		\item \textbf{Robotics}: Rust is increasingly popular in robotics for its efficiency, safety, and speed.
+		\item \textbf{Medical Devices}: Rust's safety features make it an excellent choice for embedded systems in critical applications, such as medical devices.
+		\item \textbf{Versatility}: Even if you need to code in languages like C later, the principles you learn with Rust—like control logic, error handling, and concurrent programming—will still be applicable.
+	\end{itemize}
+	By learning Rust, you are gaining skills that are valuable for both software development and embedded systems programming.
+	
+	\section*{Project Overview}
+	The main objective of this project is to program a virtual robot to navigate through a 2D maze. The robot's movement is simulated using a virtual motor, which acts like a "black box." You will write Rust code to interact with this motor's API, controlling the robot’s speed, direction, and other parameters.
+	
+	This project simulates real-world embedded systems challenges and teaches you:
+	\begin{itemize}
+		\item \textbf{Control Logic}: How to manage the robot’s movement using logical conditions and decision-making.
+		\item \textbf{Algorithmic Thinking}: How to develop algorithms to navigate the maze effectively.
+		\item \textbf{Efficient Coding}: How to write code that interacts efficiently with hardware components.
+	\end{itemize}
+	
+	\section*{Project Structure}
+	The project is divided into three main components:
+	\begin{enumerate}
+		\item \textbf{Black Box Simulator}: 
+		This is the core component, simulating a virtual motor and sensors of the robot. The "black box" mimics the behavior of real hardware, providing a practical interface for your Rust code.
+		\item \textbf{Robot Control Code}:
+		You will write Rust code to send commands to the virtual motor, adjusting the robot's speed and direction.
+		\item \textbf{Virtual Maze Environment}:
+		The environment consists of a simple 2D grid maze. Your goal is to program the robot to traverse this maze successfully.
+	\end{enumerate}
+	
+	\section*{Hands-On Coding Experience with Rust}
+	This project provides a practical way to learn Rust while simulating embedded systems programming:
+	\begin{itemize}
+		\item \textbf{Control Flow}:
+		You will use loops and conditionals to manage the robot's movements, reinforcing Rust’s strong type system.
+		\item \textbf{Error Handling}:
+		Rust's \texttt{Result} and \texttt{Option} types will be used to handle errors and manage optional values, helping you write safer code.
+		\item \textbf{Concurrency} (optional, for advanced students):
+		If you progress well, you will be introduced to concurrent programming, enabling you to simulate more realistic motor control.
+	\end{itemize}
+	
+	\section*{Getting Started}
+	\textbf{Follow these steps to begin:}
+	\begin{enumerate}
+		\item \textbf{Set Up a GitHub Account}
+		\begin{itemize}
+			\item Go to \href{https://github.com/}{GitHub's signup page} and create an account.
+			\item Use the \textbf{Sign up with Google} option if you have a Google account.
+			\item Set up your GitHub profile and explore the interface to understand where to find repositories, issues, and your profile.
+		\end{itemize}
+		
+		\item \textbf{Fork the Project Repository}
+		\begin{itemize}
+			\item Go to the main project repository on GitHub: \\
+			\url{https://github.com/mkstreet/virtual-robot-maze.git}
+			\item Click the \textbf{Fork} button in the top right corner of the page.
+			\item Forking creates an independent copy of the repository under your GitHub account.
+			\item Once the forking process is complete, you will be redirected to your forked version of the repository.
+		\end{itemize}
+		
+		\item \textbf{Launch GitHub Codespaces}
+		\begin{itemize}
+			\item Go to your forked repository on GitHub.
+			\item Click the \textbf{Code} button, then select the \textbf{Codespaces} tab.
+			\item Click on \textbf{Create codespace on main} to launch a new Codespace environment.
+			\item Codespaces will set up a development environment using the \texttt{devcontainer.json} file, installing Rust and necessary extensions.
+			\item Once ready, you will have an online development environment similar to VS Code, with the project files already loaded.
+		\end{itemize}
+	\end{enumerate}
+	
+	\section*{Next Steps}
+	Once you have set up GitHub Codespaces, start exploring the project by navigating to the \texttt{src/main.rs} file. Begin writing Rust code to interact with the virtual robot's black box API and program the robot to navigate the maze.
+	
+\end{document}

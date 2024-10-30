@@ -1,0 +1,90 @@
+\documentclass{article}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\geometry{margin=1in}
+
+\title{API Guide: Virtual Robot Black Box}
+\author{}
+\date{}
+
+% Define Rust code listing style
+\lstdefinelanguage{Rust}{
+	keywords={fn, pub, let, mut, return, struct, impl, for, in, if, else, match, while, loop},
+	keywordstyle=\color{blue}\bfseries,
+	ndkeywords={u8, i32, f64, String, bool, Option, Result, Some, None, Ok, Err},
+	ndkeywordstyle=\color{purple}\bfseries,
+	comment=[l]{//},
+	commentstyle=\color{gray}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	sensitive=true
+}
+
+\lstset{
+	language=Rust,
+	basicstyle=\ttfamily\small,
+	columns=flexible,
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	stepnumber=1,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	tabsize=4,
+	breaklines=true,
+	breakatwhitespace=true,
+	frame=single,
+	backgroundcolor=\color{white},
+	captionpos=b
+}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{Introduction}
+	This document provides information about the \textbf{Virtual Robot Black Box API}, specifically focusing on the functionality needed for \textbf{Task 01}. The black box simulates a virtual motor, and you will use the provided API to interact with it.
+	
+	\section*{Available Function}
+	
+	\subsection*{\texttt{move\_forward(speed: u8)}}
+	\begin{itemize}
+		\item \textbf{Description}: 
+		This function makes the virtual robot move forward at the specified speed.
+		\item \textbf{Parameter}: 
+		\begin{itemize}
+			\item \texttt{speed} (\texttt{u8}): 
+			The speed at which the robot should move forward. It is an unsigned 8-bit integer, meaning it can take values from 0 to 255.
+		\end{itemize}
+		\item \textbf{Example Usage}:
+		\begin{lstlisting}[language=Rust, caption={Using the move\_forward function}]
+			fn main() {
+				move_forward(5);  // Move the robot forward at speed 5
+			}
+		\end{lstlisting}
+		\item \textbf{Expected Behavior}:
+		When called, the function sends a command to the black box API to simulate the robot moving forward. The implementation details are hidden, but the function is expected to execute without errors if the speed is within the valid range.
+		\item \textbf{Error Handling}:
+		The function does not return any value. Rust's type system will prevent invalid inputs, as \texttt{u8} only accepts values from 0 to 255.
+	\end{itemize}
+	
+	\section*{How to Test the Function}
+	To test the \texttt{move\_forward} function:
+	\begin{enumerate}
+		\item Add the function to the main file (\texttt{src/main.rs}) of your project.
+		\item Call the function inside the \texttt{main()} function, as shown in the example usage.
+		\item Run the project using the following command in the terminal:
+		\begin{lstlisting}
+			cargo run
+		\end{lstlisting}
+		\item If the implementation is correct, you should see a message like:
+		\begin{lstlisting}
+			Sending command: MOVE_FORWARD with speed 5
+		\end{lstlisting}
+	\end{enumerate}
+	
+	\section*{Note}
+	The \texttt{move\_forward} function is part of the black box API, meaning you can use it to interact with the virtual robot, but the underlying implementation is hidden. Focus on how to use the function effectively, rather than how it works internally.
+	
+\end{document}

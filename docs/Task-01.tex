@@ -1,0 +1,148 @@
+\documentclass{article}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\geometry{margin=1in}
+
+\title{Task 01: Move the Robot Forward}
+\author{}
+\date{}
+
+% Define Rust code listing style
+\lstdefinelanguage{Rust}{
+	keywords={fn, pub, let, mut, return, struct, impl, for, in, if, else, match, while, loop},
+	keywordstyle=\color{blue}\bfseries,
+	ndkeywords={u8, i32, f64, String, bool, Option, Result, Some, None, Ok, Err},
+	ndkeywordstyle=\color{purple}\bfseries,
+	comment=[l]{//},
+	commentstyle=\color{gray}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	sensitive=true
+}
+
+\lstset{
+	language=Rust,
+	basicstyle=\ttfamily\small,
+	columns=flexible,
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	stepnumber=1,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	tabsize=4,
+	breaklines=true,
+	breakatwhitespace=true,
+	frame=single,
+	backgroundcolor=\color{white},
+	captionpos=b
+}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{First Coding Task: Move the Robot Forward}
+	
+	Now that everyone is set up in GitHub Codespaces, it's time to dive into your first coding task!
+	
+	\subsection*{Objective}
+	Write a function in Rust that sends a command to move the robot forward in the virtual maze. This function will interact with the "black box" API that simulates the robot’s motor.
+	
+	\subsection*{Detailed Code Explanation}
+	
+	The function you'll write is structured as follows:
+	
+	\begin{lstlisting}[language=Rust, caption={Rust code for moving the robot forward}]
+		// This function is public, meaning it can be accessed from other modules.
+		pub fn move_forward(speed: u8) {
+			// 'speed' is a parameter that sets how fast the robot moves forward.
+			// 'u8' is an unsigned 8-bit integer, allowing values from 0 to 255.
+			
+			// Here, you'll replace this comment with code that sends a command 
+			// to the black box API, instructing the virtual robot to move forward.
+		}
+	\end{lstlisting}
+	
+	\noindent
+	\textbf{What the Code Does:}
+	\begin{itemize}
+		\item \texttt{pub fn move\_forward(speed: u8)}: 
+		This line defines a \textbf{public function} in Rust, meaning it can be called from other parts of the program.
+		\item \texttt{speed: u8}:
+		The function takes a parameter called \texttt{speed}, which represents the speed at which the robot should move forward. 
+		The \texttt{u8} type stands for an \textbf{unsigned 8-bit integer}, meaning it can take values from 0 to 255.
+		\item The function body currently contains a comment that indicates where you should implement the code for moving the robot forward.
+	\end{itemize}
+	
+	\subsection*{What You Should Do to Complete Task 01}
+	
+	To complete this task, you need to add logic inside the \texttt{move\_forward} function to interact with the "black box" API. Follow these steps:
+	
+	\begin{enumerate}
+		\item \textbf{Understand the API Interaction}:
+		The "black box API" acts as a simulated motor controller, translating commands (e.g., moving forward, turning) into robot actions.
+		Your task is to write Rust code that calls this API to make the virtual robot move forward.
+		\item \textbf{Modify the \texttt{move\_forward} Function}:
+		Replace the placeholder comment inside the function with code that sends a forward command to the black box API, using the given \texttt{speed} parameter.
+		\item \textbf{Example Implementation}:
+		If the API has a function called \texttt{send\_command}, you could implement the \texttt{move\_forward} function as follows:
+		\begin{lstlisting}[language=Rust, caption={Example implementation of move\_forward}]
+			pub fn move_forward(speed: u8) {
+				// Simulate sending a command to the black box API to move forward
+				send_command("MOVE_FORWARD", speed);
+			}
+			
+			// This is a mock function representing the black box API command sender
+			fn send_command(command: &str, value: u8) {
+				// In a real implementation, this would send a command to the simulated motor
+				println!("Sending command: {} with speed {}", command, value);
+			}
+		\end{lstlisting}
+	\end{enumerate}
+	
+	\subsection*{How Students Should Test Their Code}
+	
+	After completing the \texttt{move\_forward} function, students should test it by following these steps:
+	
+	\begin{enumerate}
+		\item \textbf{Add the function to the main file} (\texttt{src/main.rs}):
+		Open the \texttt{src/main.rs} file and include the \texttt{move\_forward} function definition.
+		
+		\item \textbf{Call the function in the \texttt{main()} function}:
+		Add the following code to the \texttt{main()} function:
+		\begin{lstlisting}[language=Rust, caption={Calling move\_forward in the main function}]
+			fn main() {
+				move_forward(5);  // Example call to move the robot forward at speed 5
+			}
+		\end{lstlisting}
+		
+		\item \textbf{Run the code in the terminal}:
+		\begin{itemize}
+			\item In the top menu of the Codespace, click on the \textbf{Terminal} menu and select \textbf{New Terminal}.
+			\item In the terminal, navigate to the project directory (if not already there) by typing:
+			\begin{lstlisting}
+				cd ~/workspace/virtual-robot-maze
+			\end{lstlisting}
+			\item Compile and run your Rust code using the following command:
+			\begin{lstlisting}
+				cargo run
+			\end{lstlisting}
+		\end{itemize}
+		
+		\item \textbf{Check the output}:
+		If the implementation is correct, the terminal should display a message like:
+		\begin{lstlisting}
+			Sending command: MOVE_FORWARD with speed 5
+		\end{lstlisting}
+	\end{enumerate}
+	
+	\subsection*{Tips}
+	\begin{itemize}
+		\item Focus on getting the basic functionality working first. Adjust the speed parameter and observe how it changes the robot's behavior.
+		\item If you encounter errors, read the error messages carefully—they often provide clues about what went wrong.
+		\item Remember that the goal is to make the robot move forward in the virtual maze, so don’t hesitate to experiment with the function’s logic.
+	\end{itemize}
+	
+\end{document}
