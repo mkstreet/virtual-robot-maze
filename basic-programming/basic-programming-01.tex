@@ -1,0 +1,164 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\geometry{margin=1in}
+
+% Define Rust code listing style
+\lstdefinelanguage{Rust}{
+	keywords={fn, let, mut, println},
+	keywordstyle=\color{blue}\bfseries,
+	ndkeywords={i32, String, bool},
+	ndkeywordstyle=\color{purple}\bfseries,
+	comment=[l]{//},
+	commentstyle=\color{gray}\ttfamily,
+	stringstyle=\color{red}\ttfamily,
+	sensitive=true
+}
+
+\lstset{
+	language=Rust,
+	basicstyle=\ttfamily\small,
+	columns=flexible,
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	stepnumber=1,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	tabsize=4,
+	breaklines=true,
+	breakatwhitespace=true,
+	frame=single,
+	backgroundcolor=\color{white},
+	captionpos=b
+}
+
+\title{Stepping-Stone Task: Basic Syntax and Variables}
+\author{}
+\date{}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section*{Objective}
+	The goal of this task is to introduce you to basic programming concepts in Rust, focusing on variables, data types, and basic operations.
+	
+	\section*{What are Variables?}
+	A \textbf{variable} is like a container that holds a value. You can think of it as a labeled box where you can store information. For example, you can have a box labeled \texttt{age} that holds the number 15. You can use variables to store numbers, text, and other types of information so that you can use or change them later in your program.
+	
+	\section*{What Does "Declare" Mean?}
+	To \textbf{declare} a variable means to create it and give it a name. Declaring a variable also tells the computer what kind of value it will hold (e.g., a number, a word, or true/false). You declare a variable so that you can use it in your program. Think of it as setting up a new box to store a specific type of information.
+	
+	\section*{What are Data Types?}
+	In programming, \textbf{data types} define what kind of information a variable can hold. Here are some basic data types in Rust:
+	\begin{itemize}
+		\item \textbf{Integer (\texttt{i32})}: A whole number, like 5 or 10. The \texttt{i32} type means it's a 32-bit integer, which can hold positive or negative whole numbers.
+		\item \textbf{Boolean (\texttt{bool})}: A value that can be either true or false, used for yes/no or on/off situations.
+		\item \textbf{String (\texttt{\&str})}: A sequence of characters, like "Hello, Rust!" or "123 Main St". In Rust, strings are represented as \texttt{\&str}, which is a reference to text.
+	\end{itemize}
+	
+	\section*{Task Overview}
+	You will write a simple Rust program that:
+	\begin{itemize}
+		\item Declares variables of different data types (e.g., integers, strings, booleans).
+		\item Performs basic arithmetic operations.
+		\item Prints the results to the screen.
+	\end{itemize}
+	
+	\section*{Instructions for Codespaces}
+	\begin{enumerate}
+		\item \textbf{Open Your Project in GitHub Codespaces}
+		\begin{itemize}
+			\item Go to your forked \texttt{virtual-robot-maze} repository on GitHub.
+			\item Click the \texttt{Code} button and select \texttt{Codespaces}.
+			\item Create a new codespace, or open an existing one.
+		\end{itemize}
+		
+		\item \textbf{Navigate to the \texttt{basic-programming} directory}
+		\begin{itemize}
+			\item In Codespaces, open the terminal (usually at the bottom of the screen).
+			\item Navigate to the \texttt{basic-programming} folder that already exists in the project:
+			\begin{lstlisting}[language=bash]
+				cd basic-programming
+			\end{lstlisting}
+		\end{itemize}
+		
+		\item \textbf{Create a new Rust project for this task}
+		\begin{itemize}
+			\item Inside the \texttt{basic-programming} directory, create a new Rust project:
+			\begin{lstlisting}[language=bash]
+				cargo new basic_syntax
+				cd basic_syntax
+			\end{lstlisting}
+			\item This will create a folder named \texttt{basic\_syntax} where you will work on this task.
+		\end{itemize}
+		
+		\item \textbf{Declare Variables}
+		\begin{itemize}
+			\item Declare variables of different types, like integers, strings, and booleans.
+			\item Use the \texttt{let} keyword to define variables:
+			\begin{lstlisting}[language=Rust]
+				let x: i32 = 5;            // Integer
+				let name: &str = "Rust";   // String
+				let is_learning: bool = true; // Boolean
+			\end{lstlisting}
+			\item Modify the values of these variables to understand how they work.
+		\end{itemize}
+		
+		\item \textbf{Perform Basic Arithmetic}
+		\begin{itemize}
+			\item Add two integer variables together and store the result in a new variable:
+			\begin{lstlisting}[language=Rust]
+				let y: i32 = 10;
+				let sum = x + y;
+				println!("The sum is: {}", sum);
+			\end{lstlisting}
+			\item Try other operations like subtraction, multiplication, and division.
+		\end{itemize}
+		
+		\item \textbf{Print Results to the Screen}
+		\begin{itemize}
+			\item Use the \texttt{println!} macro to display the values of the variables and results of operations:
+			\begin{lstlisting}[language=Rust]
+				println!("Name: {}", name);
+				println!("Is learning Rust: {}", is_learning);
+			\end{lstlisting}
+		\end{itemize}
+	\end{enumerate}
+	
+	\section*{What to Expect}
+	\begin{itemize}
+		\item After running the program, you should see output similar to:
+		\begin{verbatim}
+			The sum is: 15
+			Name: Rust
+			Is learning Rust: true
+		\end{verbatim}
+		\item Modify the values of variables and re-run the program to observe different results.
+	\end{itemize}
+	
+	\section*{Testing and Debugging}
+	\begin{itemize}
+		\item To run your program, use:
+		\begin{lstlisting}[language=bash]
+			cargo run
+		\end{lstlisting}
+		\item If you see an error message, try to understand what it says—Rust’s error messages are often helpful.
+		\item If the program runs successfully, try adding new variables or operations.
+	\end{itemize}
+	
+	\section*{Hints}
+	\begin{itemize}
+		\item Variables must have the correct data types, so \texttt{i32}, \texttt{\&str}, and \texttt{bool} must match the values you assign.
+		\item Experiment with different arithmetic operations (e.g., \texttt{-}, \texttt{*}, \texttt{/}) and see what results you get.
+		\item If you get stuck, break the problem into smaller steps—start with one variable and build up from there.
+	\end{itemize}
+	
+	\section*{Next Steps}
+	Once you’ve completed this task, you will have a better understanding of how variables and data types work in Rust. This foundation will be helpful for the upcoming tasks in the virtual robot project.
+	
+\end{document}

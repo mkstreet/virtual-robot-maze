@@ -1,19 +1,16 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 \usepackage{geometry}
+\usepackage{hyperref}
 \usepackage{listings}
 \usepackage{xcolor}
 
 \geometry{margin=1in}
 
-\title{Task 01: Move the Robot Forward}
-\author{}
-\date{}
-
 % Define Rust code listing style
 \lstdefinelanguage{Rust}{
-	keywords={fn, pub, let, mut, return, struct, impl, for, in, if, else, match, while, loop},
+	keywords={fn, let, mut, println, pub},
 	keywordstyle=\color{blue}\bfseries,
-	ndkeywords={u8, i32, f64, String, bool, Option, Result, Some, None, Ok, Err},
+	ndkeywords={u8, Result, Option},
 	ndkeywordstyle=\color{purple}\bfseries,
 	comment=[l]{//},
 	commentstyle=\color{gray}\ttfamily,
@@ -39,110 +36,108 @@
 	captionpos=b
 }
 
+\title{Virtual Robot Task: Task01 - Move the Robot Forward}
+\author{}
+\date{}
+
 \begin{document}
 	
 	\maketitle
 	
-	\section*{First Coding Task: Move the Robot Forward}
+	\section*{Objective}
+	In this task, you will write code to move a virtual robot forward. The code will interact with the black box API that controls the robot's motor.
 	
-	Now that everyone is set up in GitHub Codespaces, it's time to dive into your first coding task!
-	
-	\subsection*{Objective}
-	Write a function in Rust that sends a command to move the robot forward in the virtual maze. This function will interact with the "black box" API that simulates the robot’s motor.
-	
-	\subsection*{Detailed Code Explanation}
-	
-	The function you'll write is structured as follows:
-	
-	\begin{lstlisting}[language=Rust, caption={Rust code for moving the robot forward}]
-		// This function is public, meaning it can be accessed from other modules.
-		pub fn move_forward(speed: u8) {
-			// 'speed' is a parameter that sets how fast the robot moves forward.
-			// 'u8' is an unsigned 8-bit integer, allowing values from 0 to 255.
-			
-			// Here, you'll replace this comment with code that sends a command 
-			// to the black box API, instructing the virtual robot to move forward.
-		}
-	\end{lstlisting}
-	
-	\noindent
-	\textbf{What the Code Does:}
+	\section*{Understanding the \texttt{move\_forward} Function}
+	The \texttt{move\_forward} function is used to send a command to the robot’s motor to move forward. Here’s how you can start writing it:
 	\begin{itemize}
-		\item \texttt{pub fn move\_forward(speed: u8)}: 
-		This line defines a \textbf{public function} in Rust, meaning it can be called from other parts of the program.
-		\item \texttt{speed: u8}:
-		The function takes a parameter called \texttt{speed}, which represents the speed at which the robot should move forward. 
-		The \texttt{u8} type stands for an \textbf{unsigned 8-bit integer}, meaning it can take values from 0 to 255.
-		\item The function body currently contains a comment that indicates where you should implement the code for moving the robot forward.
+		\item The function takes one parameter: \texttt{speed}, which represents the speed at which the robot should move.
+		\item The \texttt{speed} parameter is of type \texttt{u8}, which is an 8-bit unsigned integer, meaning it can have values from 0 to 255.
 	\end{itemize}
 	
-	\subsection*{What You Should Do to Complete Task 01}
-	
-	To complete this task, you need to add logic inside the \texttt{move\_forward} function to interact with the "black box" API. Follow these steps:
-	
+	\section*{Coding Task}
 	\begin{enumerate}
-		\item \textbf{Understand the API Interaction}:
-		The "black box API" acts as a simulated motor controller, translating commands (e.g., moving forward, turning) into robot actions.
-		Your task is to write Rust code that calls this API to make the virtual robot move forward.
-		\item \textbf{Modify the \texttt{move\_forward} Function}:
-		Replace the placeholder comment inside the function with code that sends a forward command to the black box API, using the given \texttt{speed} parameter.
-		\item \textbf{Example Implementation}:
-		If the API has a function called \texttt{send\_command}, you could implement the \texttt{move\_forward} function as follows:
-		\begin{lstlisting}[language=Rust, caption={Example implementation of move\_forward}]
-			pub fn move_forward(speed: u8) {
-				// Simulate sending a command to the black box API to move forward
-				send_command("MOVE_FORWARD", speed);
-			}
-			
-			// This is a mock function representing the black box API command sender
-			fn send_command(command: &str, value: u8) {
-				// In a real implementation, this would send a command to the simulated motor
-				println!("Sending command: {} with speed {}", command, value);
-			}
-		\end{lstlisting}
-	\end{enumerate}
-	
-	\subsection*{How Students Should Test Their Code}
-	
-	After completing the \texttt{move\_forward} function, students should test it by following these steps:
-	
-	\begin{enumerate}
-		\item \textbf{Add the function to the main file} (\texttt{src/main.rs}):
-		Open the \texttt{src/main.rs} file and include the \texttt{move\_forward} function definition.
-		
-		\item \textbf{Call the function in the \texttt{main()} function}:
-		Add the following code to the \texttt{main()} function:
-		\begin{lstlisting}[language=Rust, caption={Calling move\_forward in the main function}]
-			fn main() {
-				move_forward(5);  // Example call to move the robot forward at speed 5
-			}
-		\end{lstlisting}
-		
-		\item \textbf{Run the code in the terminal}:
+		\item \textbf{Navigate to the virtual robot project}
 		\begin{itemize}
-			\item In the top menu of the Codespace, click on the \textbf{Terminal} menu and select \textbf{New Terminal}.
-			\item In the terminal, navigate to the project directory (if not already there) by typing:
-			\begin{lstlisting}
-				cd ~/workspace/virtual-robot-maze
-			\end{lstlisting}
-			\item Compile and run your Rust code using the following command:
-			\begin{lstlisting}
-				cargo run
+			\item In GitHub Codespaces, open the terminal (at the bottom of the screen).
+			\item Navigate to the \texttt{virtual-robot-maze/src} directory:
+			\begin{lstlisting}[language=bash]
+				cd ~/workspaces/virtual-robot-maze/src
 			\end{lstlisting}
 		\end{itemize}
 		
-		\item \textbf{Check the output}:
-		If the implementation is correct, the terminal should display a message like:
-		\begin{lstlisting}
-			Sending command: MOVE_FORWARD with speed 5
-		\end{lstlisting}
+		\item \textbf{Edit the \texttt{main.rs} file}
+		\begin{itemize}
+			\item Open the \texttt{main.rs} file located in the \texttt{src} directory.
+			\item Add the following function template:
+			\begin{lstlisting}[language=Rust]
+				pub fn move_forward(speed: u8) {
+					// Code to send forward command to the black box API
+				}
+			\end{lstlisting}
+			\item Replace the comment with logic to interact with the black box API, using the \texttt{speed} parameter.
+		\end{itemize}
+		
+		\item \textbf{Call the \texttt{move\_forward} function}
+		\begin{itemize}
+			\item In the \texttt{main} function of \texttt{main.rs}, call the \texttt{move\_forward} function:
+			\begin{lstlisting}[language=Rust]
+				fn main() {
+					move_forward(5); // Example call to move the robot forward at speed 5
+				}
+			\end{lstlisting}
+			\item This will send a command to move the robot forward at a speed of 5.
+		\end{itemize}
+		
+		\item \textbf{Run the code}
+		\begin{itemize}
+			\item In the terminal, run:
+			\begin{lstlisting}[language=bash]
+				cargo run
+			\end{lstlisting}
+			\item If implemented correctly, you should see output indicating that the command was sent to the virtual robot:
+			\begin{verbatim}
+				Sending command: MOVE_FORWARD with speed 5
+			\end{verbatim}
+		\end{itemize}
 	\end{enumerate}
 	
-	\subsection*{Tips}
+	\section*{Switching Between Projects in GitHub Codespaces}
+	As you progress, you will work on different Rust projects within the same repository. Here's how to switch between them:
+	
+	\begin{enumerate}
+		\item \textbf{Switching to the Basic Programming Tasks}
+		\begin{itemize}
+			\item If you are currently working in the \texttt{virtual-robot-maze/src} folder, but need to return to the basic programming tasks, navigate to the \texttt{basic-programming} directory:
+			\begin{lstlisting}[language=bash]
+				cd ~/workspaces/virtual-robot-maze/basic-programming/basic_syntax
+			\end{lstlisting}
+			\item Use \texttt{cargo run} to run the code within the \texttt{basic\_syntax} project.
+		\end{itemize}
+		
+		\item \textbf{Switching to the Virtual Robot Project (Task01)}
+		\begin{itemize}
+			\item To switch back to the virtual robot task, navigate to the \texttt{virtual-robot-maze/src} directory:
+			\begin{lstlisting}[language=bash]
+				cd ~/workspaces/virtual-robot-maze/src
+			\end{lstlisting}
+			\item Use \texttt{cargo run} to execute the virtual robot code after making changes.
+		\end{itemize}
+	\end{enumerate}
+	
+	\section*{What to Expect}
 	\begin{itemize}
-		\item Focus on getting the basic functionality working first. Adjust the speed parameter and observe how it changes the robot's behavior.
-		\item If you encounter errors, read the error messages carefully—they often provide clues about what went wrong.
-		\item Remember that the goal is to make the robot move forward in the virtual maze, so don’t hesitate to experiment with the function’s logic.
+		\item After running the program, the output should confirm that the robot received a command to move forward at the specified speed.
+		\item If there are errors, read the error messages carefully to understand what needs to be fixed.
 	\end{itemize}
+	
+	\section*{Hints}
+	\begin{itemize}
+		\item Make sure you’re in the correct project directory before running any commands.
+		\item Use the correct data type for the \texttt{speed} parameter (\texttt{u8}).
+		\item If you’re unsure how to interact with the black box API, refer to the provided API documentation.
+	\end{itemize}
+	
+	\section*{Next Steps}
+	Once you complete Task01, you will understand how to interact with the virtual robot’s API to control its movements. In the next tasks, you will learn how to add more complex behaviors to the robot, such as turning and navigating through the maze.
 	
 \end{document}
